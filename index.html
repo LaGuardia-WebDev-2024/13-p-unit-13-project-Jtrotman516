@@ -14,34 +14,70 @@ Select ONE Additional Feature to Add
 -->
 
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>Unit 13 Project</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
-  </head>
+<style>
+    h1{
+     color:red;
+      font-style:italic;
+      font-size:100px;
+    }
+    #title{ 
+    color:pink;
+    }
+    body{
+      background-color:rgb(248, 159, 140);
+    }
+    p:hover{
+      color:pink;
+      
+    }
+  </style>
   <body>
-    <h1>Quiz About [Me]</h1>
-    <hr />
+    <h1 id= "title"> Quiz About ME!
+    <h1/>
     <!-- Movie Question -->
     <form id="movie-form">
       <label>
-        🎥 What is my favorite movie?
+        <p>
+          🎥 What is my favorite movie?
+        </p>
         <select id="movie-answer">
-          <option value="movie1">movie 1</option>
-          <option value="movie2">movie 2</option>
-          <option value="movie3">movie 3</option>
-          <option value="movie4">movie 4</option>
-        </select>
+          <option value="movie1"> Movie 1</option>
+          <option value="movie2"> Movie 2</option>
+          <option value="movie3">Movie 3 </option>
+           <option value="movie3">Movie 4 </option>
+                 </select>
       </label>
       <button type="submit">Check Movie Answer</button>
     </form>
-    <div id="movie-result"></div>
+    <div id="movie-result">
+      <p id="movie-text"></p>
+
+      <img
+        class="answer"
+        src="https://cdn.glitch.global/ca7d7673-0c0f-4015-8434-ed4ea32ac676/IMG_0396.jpeg?v=1749905364560"
+        width="300"
+      />
+      <img
+        src="https://cdn.glitch.global/ca7d7673-0c0f-4015-8434-ed4ea32ac676/IMG_0393.jpeg?v=1749905382605"
+        width="300"
+      />
+      <img
+        src="https://cdn.glitch.global/ca7d7673-0c0f-4015-8434-ed4ea32ac676/IMG_0395.jpeg?v=1749905371528"
+        width="200"
+      />
+      <img
+        src="https://cdn.glitch.global/ca7d7673-0c0f-4015-8434-ed4ea32ac676/IMG_0394.jpeg?v=1749905376973"
+        width="200"
+      />
+    </div>
+
     <hr />
     <!-- Book Question -->
     <form id="book-form">
       <label>
-        📖 What is my favorite book?
+       <p>
+      📖 What is my favorite book?   
+        </p> 
         <select id="book-answer">
           <option value="book1">book 1</option>
           <option value="book2">book 2</option>
@@ -49,9 +85,29 @@ Select ONE Additional Feature to Add
           <option value="book4">book 4</option>
         </select>
       </label>
-      <button type="submit">Check Book Answer</button>
+      <button type="submit"> Check Book Answer </button>
     </form>
-    <div id="book-result"></div>
+    <div id="book-result">
+      <p id="book-text"></p>
+      <img
+        class="correct"
+        src="https://cdn.glitch.global/ca7d7673-0c0f-4015-8434-ed4ea32ac676/IMG_0397.jpeg?v=1749905905534"
+        width="200"
+      />
+      <img
+        src="https://cdn.glitch.global/ca7d7673-0c0f-4015-8434-ed4ea32ac676/IMG_0398.jpeg?v=1749905911084"
+        width="200"
+      />
+      <img
+        src="https://cdn.glitch.global/ca7d7673-0c0f-4015-8434-ed4ea32ac676/IMG_0399.jpeg?v=1749905918439"
+        width="200"
+      />
+      <img
+        src="https://cdn.glitch.global/ca7d7673-0c0f-4015-8434-ed4ea32ac676/IMG_0400.jpeg?v=1749905924108"
+        width="200"
+      />
+    </div>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script>
       //Movie Question jQuery Code
@@ -62,9 +118,11 @@ Select ONE Additional Feature to Add
         var answer = $answer.val();
 
         if (answer === "movie1") {
-          $("#movie-result").text("YESSSS!");
+          $(".answer").hide();
+          $(".answer").slideDown(1000);
+          $("#movie-text").text("YAS!");
         } else {
-          $("#movie-result").text("Try Again!");
+          $("#movie-text").text(“NOPE");
         }
       });
 
@@ -75,14 +133,13 @@ Select ONE Additional Feature to Add
         var $answer = $("#book-answer");
         var answer = $answer.val();
 
-        if (answer === "book1") {
-          $("#book-result").text("YESSSS!");
+        if (answer === "book4") {
+           $(".correct").hide();
+          $(".correct").slideDown(1000);
+          $("#book-text").text("YAS");
         } else {
-          $("#book-result").text("Try Again!");
+          $("#book-text").text("NOPE");
         }
       });
     </script>
   </body>
-
-  <!--- Taken From Khan Academy HTML/JS: Making webpages interactive with jQuery-->
-</html>
